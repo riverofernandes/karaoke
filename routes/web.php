@@ -4,7 +4,7 @@ use App\Http\Controllers\{EventController, ProfileController};
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome1');
+    return view('welcome');
 });
 
 Route::get('/dashboard', function () {
