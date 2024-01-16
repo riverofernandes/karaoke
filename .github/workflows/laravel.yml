@@ -19,7 +19,7 @@ jobs:
     - name: Update Composer
       run: composer self-update
     - name: Install Dependencies
-      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      run: composer install -q --no-scripts
     - name: Update Composer packages
       run: composer update
     - name: Generate key
