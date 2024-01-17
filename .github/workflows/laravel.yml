@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
-        php-version: '8.0'
+        php-version: '8.1'
     - uses: actions/checkout@v3
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
@@ -20,11 +20,10 @@ jobs:
     - name: Update Composer
       run: composer self-update
 
+    #- name: Install Dependencies
+     # run: composer install -q --no-ansi --no-scripts --no-progress --prefer-dist
     - name: Install Dependencies
-      run: composer install --no-scripts
-
-    - name: Update Composer packages
-      run: composer update
+      run: composer update --no-interaction --prefer-dist
 
     - name: Generate key
       run: php artisan key:generate
@@ -36,6 +35,12 @@ jobs:
       run: |
         mkdir -p database
         touch database/database.sqlite
+    
+    - name: Intalling Package.json
+      run: npm install
+
+    - name: Build Assets
+      run: npm run build
         
     - name: Execute tests (Unit and Feature tests) via PEST
       env:
