@@ -14,6 +14,7 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
 </head>
 
 <body class="font-sans antialiased">
@@ -43,6 +44,7 @@
             document.documentElement.classList.remove('dark')
         }
     </script>
+    @livewireScripts
 </body>
 
 </html>
